@@ -1,0 +1,64 @@
+CONSULTATION MEETING TRANSCRIPT
+Date: October 14, 2026
+Duration: 42 minutes
+Participants:
+- Alex (Senior AI Tech Consultant, Antigravity Solutions)
+- Mark Stevens (Founder & Executive Director, Austin Wedding Vendors Network)
+- Jessica Cole (Director of Marketing, Austin Wedding Vendors Network)
+
+[00:00:15] Alex: Good morning Mark and Jessica! Great to connect with you both. Thanks for hopping on the call. Today our goal is to understand your business objectives for the Austin Wedding Vendors Network, walk through your technical requirements, and figure out how to configure Brilliant Directories to replace your current setup. To kick off, Mark, could you give a high-level overview of where things stand today?
+
+[00:01:02] Mark Stevens: Absolutely, Alex. Thanks for having us. So, we've been running the Austin Wedding Vendors Network for about four years now. We currently have around 2,500 active vendor listings—photographers, venues, florists, caterers, DJs. The issue is we built this on WordPress using a combination of WooCommerce, GeoDirectory, and about 30 different plugins. It’s slow, updates break the site every month, and our members are complaining about how difficult it is to manage their profiles.
+
+[00:02:18] Jessica Cole: And from the marketing side, it's a nightmare. Mobile load times are over 6 seconds. When couples search for wedding venues in South Congress or Dripping Springs, the map pins either fail to render or freeze the browser. We're losing thousands of dollars in lost lead conversions.
+
+[00:03:00] Alex: That's a classic WordPress plugin sprawl issue. Brilliant Directories is built specifically for this use case with native member directory management, hosting, and geocoding. Let's break down the core functional requirements. First, what does your membership structure look like?
+
+[00:03:32] Mark Stevens: Right now, we want three tiers:
+1. Basic / Free tier: Vendors get a standard listing with business name, address, phone, and 1 category selection. No photo gallery, and no direct inquiry form.
+2. Premium Featured tier: $49 per month or $490 per year. They get up to 5 categories, 20 photo uploads in their portfolio gallery, video reel embed, direct quote request forms, and badge highlighting in search results.
+3. VIP Sponsor tier: $149 per month or $1,400 per year. All Premium features plus homepage featured banner rotation, verified green checkmark badge, and guaranteed top placement in their primary category.
+
+[00:04:45] Alex: Excellent. Brilliant Directories supports tiered membership plans natively with automated recurring billing through Stripe. We can set up those three plans, configure the permission privileges (photo limits, badges, inquiry forms), and connect your Stripe account so payments and renewals happen automatically. Do you also need PayPal, or is Stripe sufficient?
+
+[00:05:22] Mark Stevens: 95% of our vendors pay by credit card, so Stripe is our primary gateway. If PayPal is easy to toggle on, great, but Stripe is mandatory.
+
+[00:05:40] Alex: Perfect. Stripe is the cleanest native integration. Now, let's talk about member migration. You mentioned 2,500 existing vendor listings on WordPress. What format can you export that data in?
+
+[00:06:05] Mark Stevens: We can export a full CSV file containing business name, contact email, phone, physical address, categories, website URL, and membership join date. Photos are stored in the WordPress uploads directory, so we have URLs for logos and gallery images.
+
+[00:06:34] Alex: That's standard. We'll run a data cleansing and normalization script to map your WordPress taxonomy and custom fields into the Brilliant Directories schema, download and re-link the logo assets, and bulk import all 2,500 vendors. Once imported, we can trigger an automated welcome email with a password claim link so vendors can log in and claim their migrated profiles.
+
+[00:07:15] Jessica Cole: That sounds wonderful. Now, regarding the search and homepage map: this is crucial for our branding. On the homepage hero section, we want an interactive map with cluster pins. When a bride clicks 'Hill Country' or enters '78704' with a 25-mile radius, the map should dynamically filter the vendor cards below it. Is that native, or custom development?
+
+[00:08:02] Alex: The radius search and Google Maps integration is native in Brilliant Directories. It uses the Google Maps Geocoding and Places API to calculate radial distances. However, custom cluster marker styling with branded pastel pins matching your Austin aesthetic requires a custom frontend map widget with JavaScript. That is a custom UI widget enhancement, roughly 15 to 20 development hours.
+
+[00:08:48] Jessica Cole: Okay, that makes sense and we definitely want that custom pin styling—our brand identity is very important to our wedding planners. Another feature we need: lead notifications via SMS. When a couple submits a quote request on a photographer's profile, the photographer should receive an email immediately, but our VIP vendors also want an SMS text alert on their mobile phone via Twilio. Can we do that?
+
+[00:09:30] Alex: Great question. Brilliant Directories natively sends instant email notifications for lead inquiries. To send SMS text alerts via Twilio, we will configure an outgoing webhook on lead submission to a serverless webhook handler (or Zapier/Make) that calls the Twilio API with the lead summary and sends the SMS. That's a custom integration item.
+
+[00:10:15] Mark Stevens: That's fine, we already have a Twilio account set up with our corporate phone number. What about member reviews? We want couples to leave reviews with 1 to 5 stars, but we also want admin moderation where reviews are held in pending status until our team approves them to prevent spam or malicious competitor reviews.
+
+[00:10:48] Alex: That is 100% native in Brilliant Directories. In Member Settings > Reviews, there is a toggle for 'Require Admin Approval'. When enabled, every review is held in a moderation queue where your team can review, edit, approve, or reject before it appears publicly. Zero custom code needed.
+
+[00:11:18] Mark Stevens: Fantastic, love hearing that. What about SEO and 301 redirects? Our WordPress site has decent Google rankings for terms like 'wedding photographers Austin TX'. We cannot afford to lose that organic traffic.
+
+[00:11:42] Alex: Crucial point. We will extract all existing WordPress URLs, generate a comprehensive 301 redirect map in your .htaccess or DNS edge manager, and match them to the new category and member profile URL structures in Brilliant Directories. We will also configure the SEO templates for title tags, OpenGraph previews, and Schema.org LocalBusiness structured data.
+
+[00:12:28] Jessica Cole: What is your estimated timeline and launch target? Our ideal launch date is in 6 weeks, right before the peak engagement season around Thanksgiving and December.
+
+[00:13:00] Alex: 6 weeks is very realistic. We would structure this into 4 key phases:
+- Phase 1 (Weeks 1-2): Platform provisioning, DNS, Stripe billing setup, general settings, and theme customization.
+- Phase 2 (Weeks 2-3): 2,500 vendor data cleaning, schema mapping, and test batch CSV imports.
+- Phase 3 (Weeks 3-4): Custom homepage interactive map cluster widget and Twilio SMS webhook integration.
+- Phase 4 (Weeks 5-6): 301 redirect setup, end-to-end QA testing, claim-profile email campaign, and production cutover.
+
+[00:14:15] Mark Stevens: And what budget range are we looking at for this scope of work?
+
+[00:14:30] Alex: For the full configuration, custom map widget, Twilio webhook integration, 2,500 member migration, SEO redirects, and 6-week phased delivery, you are looking at approximately 80 to 110 professional engineering hours, which at our blended rate of $110/hour comes out to roughly $8,800 to $12,100 total project investment.
+
+[00:15:15] Mark Stevens: That is right in line with the $10,000 to $12,000 budget we set aside. Alex, this has been very thorough. Can you prepare a formal written proposal and Scope of Work summarizing everything we discussed today?
+
+[00:15:40] Alex: Absolutely, Mark. We will run our multi-agent consultation pipeline to extract all requirements, verify platform feasibility, itemize the hours and milestones, and deliver a client-ready Statement of Work and proposal document by this afternoon.
+
+[00:16:05] Jessica Cole: Perfect. Thank you so much Alex! Talk soon.

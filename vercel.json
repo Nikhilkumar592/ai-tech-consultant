@@ -1,0 +1,4 @@
+{
+  "buildCommand": "cd task2-inbox-agent/frontend && npm install && npm run build",
+  "outputDirectory": "task2-inbox-agent/frontend/dist"
+}

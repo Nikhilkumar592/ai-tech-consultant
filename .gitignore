@@ -1,0 +1,49 @@
+# Environment
+.env
+*.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+venv/
+.venv/
+.pytest_cache/
+
+# Node
+node_modules/
+.next/
+out/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+chroma_data/
+chromadb/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Downloaded images
+task1-knowledge-brain/data/images/
+
+# Test coverage
+htmlcov/
+.coverage
+coverage/

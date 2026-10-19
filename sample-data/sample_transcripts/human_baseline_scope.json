@@ -1,0 +1,95 @@
+{
+  "client_name": "Austin Wedding Vendors Network",
+  "project_title": "Directory Migration & Custom Enhancement Project",
+  "prepared_by": "Senior Tech Consultant (Human Expert Baseline)",
+  "executive_summary": "Migration of 2,500 WordPress listings to Brilliant Directories with custom branded map clusters, Twilio SMS lead routing, tiered Stripe subscriptions, and 301 SEO redirects.",
+  "timeline_weeks": 6,
+  "budget": {
+    "blended_hourly_rate": 110,
+    "estimated_hours_min": 85,
+    "estimated_hours_expected": 95,
+    "estimated_hours_max": 110,
+    "total_cost_expected": 10450
+  },
+  "requirements_breakdown": {
+    "native_configuration": [
+      {
+        "item": "Three Tiered Membership Plans",
+        "description": "Basic Free, Premium Featured ($49/mo), VIP Sponsor ($149/mo) with permission flags.",
+        "hours": 6
+      },
+      {
+        "item": "Stripe Payment Gateway Integration",
+        "description": "Connect live Stripe API keys and recurring billing webhooks.",
+        "hours": 4
+      },
+      {
+        "item": "Member Review Moderation Queue",
+        "description": "Configure require admin approval toggle for reviews.",
+        "hours": 2
+      },
+      {
+        "item": "Standard Radial Geocoding Search",
+        "description": "Configure Google Maps API key and location distance radius search.",
+        "hours": 4
+      }
+    ],
+    "custom_development": [
+      {
+        "item": "Custom Branded Map Cluster Widget",
+        "description": "Interactive Google Maps frontend widget with Austin brand aesthetic pastel pins and dynamic filtering.",
+        "hours": 18
+      },
+      {
+        "item": "Twilio SMS Lead Notification Webhook",
+        "description": "Webhook handler routing lead inquiry data to Twilio REST API for VIP vendor SMS alerts.",
+        "hours": 12
+      }
+    ],
+    "data_migration": [
+      {
+        "item": "2,500 Member CSV Data Cleansing & Import",
+        "description": "Taxonomy mapping, WordPress custom field transformation, image asset re-linking, and batch import.",
+        "hours": 25
+      }
+    ],
+    "seo_and_deployment": [
+      {
+        "item": "301 Redirect Mapping & SEO Cutover",
+        "description": "Extract old WordPress permalinks, create 301 redirect map, Schema.org LocalBusiness templates.",
+        "hours": 14
+      },
+      {
+        "item": "End-to-End QA, Claim Profile Email, & Production Launch",
+        "description": "Cross-browser testing, automated claim listing email blast, DNS cutover.",
+        "hours": 10
+      }
+    ]
+  },
+  "milestones": [
+    {
+      "name": "Milestone 1: Platform & Billing Architecture",
+      "target_week": 2,
+      "hours": 20,
+      "deliverables": ["DNS connected", "Stripe configured", "3 Membership plans ready", "General brand settings applied"]
+    },
+    {
+      "name": "Milestone 2: Data Migration & Member Onboarding",
+      "target_week": 3,
+      "hours": 25,
+      "deliverables": ["2,500 listings imported", "Taxonomy mapped", "Assets re-linked", "Claim listing templates ready"]
+    },
+    {
+      "name": "Milestone 3: Custom Features (Map Widget & Twilio SMS)",
+      "target_week": 4,
+      "hours": 30,
+      "deliverables": ["Custom Austin map pin widget", "Twilio SMS notification webhook", "Tested lead flow"]
+    },
+    {
+      "name": "Milestone 4: QA, 301 Redirects, & Production Launch",
+      "target_week": 6,
+      "hours": 20,
+      "deliverables": ["301 redirect map active", "SSL verified", "Claim email campaign sent", "Final handover"]
+    }
+  ]
+}
